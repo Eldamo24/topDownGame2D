@@ -90,8 +90,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "LeftStick",
-                    "id": "c3b45240-6aeb-4e11-9844-b9c14649a54d",
+                    "name": "Stick",
+                    "id": "5732fed8-70de-4172-a418-655ce5e836ef",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -102,7 +102,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "5bf71e85-6b52-4a3c-bfe2-430337921612",
+                    "id": "e1503d98-6868-4ef6-99ca-c4de7efe3003",
                     "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
@@ -113,7 +113,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "5a787026-31e6-415f-b714-c0264ee54901",
+                    "id": "c3f63d9e-bcd0-4b8b-b021-90e6ebce4f89",
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
@@ -124,7 +124,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "65b495af-f524-4e19-8c34-84efbba410d8",
+                    "id": "9bf1cc44-418b-4469-a576-4f9f523b238c",
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
@@ -135,7 +135,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "6bbc586e-bf1c-42b4-9f11-64951d5cf068",
+                    "id": "3813a9b8-8db5-4b5f-b396-d23cbed30756",
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",

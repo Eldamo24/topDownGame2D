@@ -41,6 +41,11 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Movement();
+    }
+
+    private void Update()
+    {
+        AIMMovement();
         if (isShooting && Time.time > waitTime)
         {
             waitTime = Time.time + cooldown;
@@ -48,16 +53,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        AIMMovement();
-    }
-
     void Movement()
     {
         Vector2 moveVector = inputs.actions["Movement"].ReadValue<Vector2>();
-        moveVector.Normalize();
-        rb.MovePosition(rb.position + moveVector * speed * Time.deltaTime);
+        rb.MovePosition(rb.position + moveVector * speed * Time.fixedTime);
     }
 
     void AIMMovement()

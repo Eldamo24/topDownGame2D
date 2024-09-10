@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535d296070c25b0489a51cce3c52060f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 0.002
   aim: {fileID: 0}
   stickSensitivity: 100
   aimDistance: 2
