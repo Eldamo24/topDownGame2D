@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("AIM")]
     [SerializeField] private Transform aim;
-    [SerializeField] private float stickSensitivity;
     private Vector2 rotateVector;
     [SerializeField] private float aimDistance;
     private Vector3 aimPosition;
@@ -56,7 +55,7 @@ public class PlayerController : MonoBehaviour
     void Movement()
     {
         Vector2 moveVector = inputs.actions["Movement"].ReadValue<Vector2>();
-        rb.MovePosition(rb.position + moveVector * speed * Time.fixedTime);
+        rb.MovePosition(rb.position + moveVector * speed * Time.deltaTime);
     }
 
     void AIMMovement()

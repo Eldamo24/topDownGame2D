@@ -240,8 +240,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988693654}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.24, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.2399999, z: 0}
   m_LocalScale: {x: 0.25754, y: 0.25754, z: 0.25754}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -471,9 +471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535d296070c25b0489a51cce3c52060f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.002
+  speed: 5
   aim: {fileID: 0}
-  stickSensitivity: 100
   aimDistance: 2
   bullet: {fileID: 6681992374650742341, guid: b7920af3a6561c64c9e64274d31bdb95, type: 3}
   cooldown: 0.5
