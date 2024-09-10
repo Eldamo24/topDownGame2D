@@ -62,9 +62,9 @@ public class PlayerController : MonoBehaviour
     {
         if (inputs.currentControlScheme.Equals("Gamepad"))
         {
-            if (Gamepad.current != null && rotateVector.magnitude > 0.1f)
+            Vector2 direction = rotateVector.normalized;
+            if (Gamepad.current != null && direction.magnitude > 0.1f)
             {
-                Vector2 direction = rotateVector.normalized;
                 aimPosition = transform.position + new Vector3(direction.x, direction.y, 0f) * aimDistance;
             }
         }
