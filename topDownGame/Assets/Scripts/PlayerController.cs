@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float stickSensitivity;
     private Vector2 rotateVector;
     [SerializeField] private float aimDistance;
+    private Vector3 aimPosition;
 
     [Header("Shoot")]
     [SerializeField] private GameObject bullet;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
         inputs.actions["AIMMovement"].performed += ctx => rotateVector = ctx.ReadValue<Vector2>();
         inputs.actions["Shoot"].performed += StartShoot;
         inputs.actions["Shoot"].canceled += EndShoot;
+        aimPosition = Vector3.zero;
     }
 
     void Start()
@@ -60,11 +62,13 @@ public class PlayerController : MonoBehaviour
 
     void AIMMovement()
     {
-        Vector3 aimPosition;
-        if (Gamepad.current != null && rotateVector.magnitude > 0.1f)
+        if (inputs.currentControlScheme.Equals("Gamepad"))
         {
-            Vector2 direction = rotateVector.normalized;
-            aimPosition = transform.position + new Vector3(direction.x, direction.y, 0f) * aimDistance;
+            if (Gamepad.current != null && rotateVector.magnitude > 0.1f)
+            {
+                Vector2 direction = rotateVector.normalized;
+                aimPosition = transform.position + new Vector3(direction.x, direction.y, 0f) * aimDistance;
+            }
         }
         else
         {
