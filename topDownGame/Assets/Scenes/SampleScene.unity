@@ -475,6 +475,8 @@ MonoBehaviour:
   aim: {fileID: 0}
   stickSensitivity: 100
   aimDistance: 2
+  bullet: {fileID: 6681992374650742341, guid: b7920af3a6561c64c9e64274d31bdb95, type: 3}
+  cooldown: 0.5
 --- !u!114 &2067210569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,6 +510,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 6a67d65a-105b-465b-8737-df5d7a8c69f0
     m_ActionName: Player/AIMMovement[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6f977723-ba30-4ef5-99b1-1d713ed7104d
+    m_ActionName: Player/Shoot[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

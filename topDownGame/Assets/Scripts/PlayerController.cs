@@ -14,12 +14,20 @@ public class PlayerController : MonoBehaviour
     private Vector2 rotateVector;
     [SerializeField] private float aimDistance;
 
+    [Header("Shoot")]
+    [SerializeField] private GameObject bullet;
+    private bool isShooting;
+    [SerializeField] private float cooldown;
+    private float waitTime;
+
     private void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
         inputs = GetComponent<PlayerInput>();
         aim = GameObject.Find("AIM").GetComponent<Transform>();
         inputs.actions["AIMMovement"].performed += ctx => rotateVector = ctx.ReadValue<Vector2>();
+        inputs.actions["Shoot"].performed += StartShoot;
+        inputs.actions["Shoot"].canceled += EndShoot;
     }
 
     void Start()
@@ -30,7 +38,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Movement();    
+        Movement();
+        if (isShooting && Time.time > waitTime)
+        {
+            waitTime = Time.time + cooldown;
+            Shoot();
+        }
     }
 
     private void Update()
@@ -61,6 +74,24 @@ public class PlayerController : MonoBehaviour
             aimPosition = transform.position + direction * aimDistance;
         }
         aim.position = aimPosition;
+    }
+
+    void Shoot()
+    {
+        Vector3 direction = aim.position - transform.position;
+        direction.Normalize();
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Instantiate(bullet, aim.position, Quaternion.Euler(0,0, angle - 90f));
+    }
+
+    void StartShoot(InputAction.CallbackContext context)
+    {
+        isShooting = true;
+    }
+
+    void EndShoot(InputAction.CallbackContext context)
+    {
+        isShooting = false;
     }
 
 }
