@@ -298,6 +298,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4457762744631734944, guid: e6ad778884352af4b87979ebde643a93, type: 3}
+  bulletAmount: 6
+  coolDownBetweenWaves: 3
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

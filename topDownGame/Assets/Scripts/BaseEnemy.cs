@@ -5,24 +5,47 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour, IEnemy
 {
     public int Health { get  ; set  ; }
+
     [SerializeField] private GameObject bullet;
-    private float coolDown = 3f;
-    private float waitTime = 0;
-    private bool isAttacking = false;
     private Transform playerPosition;
+
+    [Header("Attack")]
+    [SerializeField] private int bulletAmount; //Cantidad de balas que disparara por oleada
+    private float coolDownBetweenShoots = 0.5f; //Cooldown entre disparos
+    private int bulletCount; //Contador de balas.
+    private bool canAttack;
+    private float waitTime = 0;
+    [SerializeField] private float coolDownBetweenWaves; //Cooldown entre oleadas de disparos
 
     private void Start()
     {
         playerPosition = FindObjectOfType<PlayerController>().GetComponent<Transform>();
+        canAttack = false;
     }
-
 
     void Update()
     {
-        if(Time.time > waitTime)
+        if(canAttack)
         {
-            waitTime = Time.time + coolDown;
-            Attack();
+            if(Time.time > waitTime)
+            {
+                waitTime = Time.time + coolDownBetweenShoots;
+                bulletCount++;
+                if (bulletCount == bulletAmount)
+                {
+                    canAttack = false;
+                    waitTime = Time.time + coolDownBetweenWaves;
+                }
+                Attack();
+            }
+        }
+        else
+        {
+            if(Time.time > waitTime)
+            {
+                canAttack = true;
+                bulletCount = 0;
+            }
         }
     }
 
@@ -47,6 +70,5 @@ public class BaseEnemy : MonoBehaviour, IEnemy
             Health = 0;
         }
     }
-
     
 }
