@@ -35,11 +35,7 @@ public class BaseEnemy : MonoBehaviour, IEnemy
         {
             Destroy(gameObject);
         }
-        if (CheckDistance())
-        {
-            Movement();
-        }
-        else
+        if(!CheckDistance())
         {
             if (canAttack)
             {
@@ -49,6 +45,14 @@ public class BaseEnemy : MonoBehaviour, IEnemy
             {
                 CoolDownAttack();
             }
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (CheckDistance())
+        {
+            Movement();
         }
     }
 
