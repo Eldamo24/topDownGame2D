@@ -7,7 +7,7 @@ TagManager:
   - PlayerBullet
   - Shield
   - PowerUp
-  - Enemy
+  - BaseEnemy
   layers:
   - Default
   - TransparentFX

@@ -21,31 +21,46 @@ public class BaseEnemy : MonoBehaviour, IEnemy
     {
         playerPosition = FindObjectOfType<PlayerController>().GetComponent<Transform>();
         canAttack = false;
+        Health = 100;
     }
 
     void Update()
     {
+        if(Health <= 0)
+        {
+            Destroy(gameObject);
+        }
         if(canAttack)
         {
-            if(Time.time > waitTime)
-            {
-                waitTime = Time.time + coolDownBetweenShoots;
-                bulletCount++;
-                if (bulletCount == bulletAmount)
-                {
-                    canAttack = false;
-                    waitTime = Time.time + coolDownBetweenWaves;
-                }
-                Attack();
-            }
+            WavesAttack();
         }
         else
         {
-            if(Time.time > waitTime)
+            CoolDownAttack();
+        }
+    }
+
+    private void WavesAttack()
+    {
+        if (Time.time > waitTime)
+        {
+            waitTime = Time.time + coolDownBetweenShoots;
+            bulletCount++;
+            if (bulletCount == bulletAmount)
             {
-                canAttack = true;
-                bulletCount = 0;
+                canAttack = false;
+                waitTime = Time.time + coolDownBetweenWaves;
             }
+            Attack();
+        }
+    }
+
+    private void CoolDownAttack()
+    {
+        if (Time.time > waitTime)
+        {
+            canAttack = true;
+            bulletCount = 0;
         }
     }
 

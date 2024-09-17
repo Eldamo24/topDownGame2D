@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     private float speed = 8f;
+    private int bulletDamage = 20;
 
     void Update()
     {
@@ -14,5 +15,14 @@ public class PlayerBullet : MonoBehaviour
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("BaseEnemy"))
+        {
+            collision.gameObject.GetComponent<BaseEnemy>().TakeDamage(bulletDamage);
+            Destroy(gameObject);
+        }
     }
 }
