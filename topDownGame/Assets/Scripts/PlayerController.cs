@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float cooldown;
     private float waitTime;
 
+    [Header("Life")]
+    public int life = 100;
+
     private void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -94,6 +97,15 @@ public class PlayerController : MonoBehaviour
     void EndShoot(InputAction.CallbackContext context)
     {
         isShooting = false;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        life -= damage;
+        if (life < 0)
+        {
+            life = 0;
+        }
     }
 
 }
