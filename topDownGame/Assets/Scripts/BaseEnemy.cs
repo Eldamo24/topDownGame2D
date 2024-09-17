@@ -7,7 +7,11 @@ public class BaseEnemy : MonoBehaviour, IEnemy
     public int Health { get  ; set  ; }
 
     [SerializeField] private GameObject bullet;
+
+    [Header("Movement")]
     private Transform playerPosition;
+    private Rigidbody2D rb;
+    [SerializeField] private float speed;
 
     [Header("Attack")]
     [SerializeField] private int bulletAmount; //Cantidad de balas que disparara por oleada
@@ -20,6 +24,7 @@ public class BaseEnemy : MonoBehaviour, IEnemy
     private void Start()
     {
         playerPosition = FindObjectOfType<PlayerController>().GetComponent<Transform>();
+        rb = GetComponent<Rigidbody2D>();
         canAttack = false;
         Health = 100;
     }
@@ -30,13 +35,20 @@ public class BaseEnemy : MonoBehaviour, IEnemy
         {
             Destroy(gameObject);
         }
-        if(canAttack)
+        if (CheckDistance())
         {
-            WavesAttack();
+            Movement();
         }
         else
         {
-            CoolDownAttack();
+            if (canAttack)
+            {
+                WavesAttack();
+            }
+            else
+            {
+                CoolDownAttack();
+            }
         }
     }
 
@@ -74,7 +86,9 @@ public class BaseEnemy : MonoBehaviour, IEnemy
 
     public void Movement()
     {
-        throw new System.NotImplementedException();
+        Vector2 direction = playerPosition.position - transform.position;
+        direction.Normalize();
+        rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
     }
 
     public void TakeDamage(int damage)
@@ -85,5 +99,15 @@ public class BaseEnemy : MonoBehaviour, IEnemy
             Health = 0;
         }
     }
-    
+
+    bool CheckDistance()
+    {
+        return Vector2.Distance(transform.position, playerPosition.position) > 5f;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, 5f);
+    }
+
 }
