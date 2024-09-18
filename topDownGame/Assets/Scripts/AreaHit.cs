@@ -14,7 +14,6 @@ public class AreaHit : MonoBehaviour
     {
         actualScale = transform.localScale;
         StartCoroutine("ScaleObject");
-        Destroy(gameObject, 2f);
     }
 
     IEnumerator ScaleObject()
