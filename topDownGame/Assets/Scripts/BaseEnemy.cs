@@ -32,10 +32,6 @@ public class BaseEnemy : MonoBehaviour, IEnemy
 
     void Update()
     {
-        if(Health <= 0)
-        {
-            Destroy(gameObject);
-        }
         if(!CheckDistance())
         {
             if (canAttack)
@@ -99,9 +95,9 @@ public class BaseEnemy : MonoBehaviour, IEnemy
     public void TakeDamage(int damage)
     {
         Health -= damage;
-        if(Health < 0)
+        if(Health <= 0)
         {
-            Health = 0;
+            Destroy(gameObject);
         }
     }
 
