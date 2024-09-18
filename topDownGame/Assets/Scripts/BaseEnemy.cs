@@ -12,6 +12,7 @@ public class BaseEnemy : MonoBehaviour, IEnemy
     private Transform playerPosition;
     private Rigidbody2D rb;
     [SerializeField] private float speed;
+    private float distanceToPlayer = 5f;
 
     [Header("Attack")]
     [SerializeField] private int bulletAmount; //Cantidad de balas que disparara por oleada
@@ -106,12 +107,7 @@ public class BaseEnemy : MonoBehaviour, IEnemy
 
     bool CheckDistance()
     {
-        return Vector2.Distance(transform.position, playerPosition.position) > 5f;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, 5f);
+        return Vector2.Distance(transform.position, playerPosition.position) > distanceToPlayer;
     }
 
 }
