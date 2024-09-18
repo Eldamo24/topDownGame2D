@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
     private float waitTime;
 
     [Header("Life")]
-    public int life = 100;
+    [SerializeField] private int life = 100;
+    private const int maxLife = 100;
 
     private void OnEnable()
     {
@@ -105,6 +106,15 @@ public class PlayerController : MonoBehaviour
         if (life < 0)
         {
             life = 0;
+        }
+    }
+
+    public void AddLife(int extraLife)
+    {
+        life += extraLife;
+        if(life > maxLife)
+        {
+            life = maxLife;
         }
     }
 

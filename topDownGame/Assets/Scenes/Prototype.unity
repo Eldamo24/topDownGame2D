@@ -299,6 +299,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &3093408479732996304
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3111468166898765782, guid: 506baa4ff9c5c9846ad7cdbdde0f3721, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.3445
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111468166898765782, guid: 506baa4ff9c5c9846ad7cdbdde0f3721, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3813
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111468166898765782, guid: 506baa4ff9c5c9846ad7cdbdde0f3721, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111468166898765782, guid: 506baa4ff9c5c9846ad7cdbdde0f3721, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111468166898765782, guid: 506baa4ff9c5c9846ad7cdbdde0f3721, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111468166898765782, guid: 506baa4ff9c5c9846ad7cdbdde0f3721, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111468166898765782, guid: 506baa4ff9c5c9846ad7cdbdde0f3721, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111468166898765782, guid: 506baa4ff9c5c9846ad7cdbdde0f3721, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111468166898765782, guid: 506baa4ff9c5c9846ad7cdbdde0f3721, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111468166898765782, guid: 506baa4ff9c5c9846ad7cdbdde0f3721, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772482262937782514, guid: 506baa4ff9c5c9846ad7cdbdde0f3721, type: 3}
+      propertyPath: m_Name
+      value: EnergyPowerUp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 506baa4ff9c5c9846ad7cdbdde0f3721, type: 3}
 --- !u!1001 &4636323639551363195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -404,6 +461,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5242205413468703854, guid: dee0237c314cfbe4bbe53a1c714d7f40, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7152482493256147893, guid: dee0237c314cfbe4bbe53a1c714d7f40, type: 3}
       propertyPath: m_Name
       value: BaseEnemy
@@ -421,3 +482,4 @@ SceneRoots:
   - {fileID: 1988693655}
   - {fileID: 4636323639551363195}
   - {fileID: 6552805311441322041}
+  - {fileID: 3093408479732996304}
