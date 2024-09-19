@@ -36,14 +36,12 @@ public class PlayerController : MonoBehaviour
         inputs.actions["Shoot"].performed += StartShoot;
         inputs.actions["Shoot"].canceled += EndShoot;
         aimPosition = Vector3.zero;
-        InGameUIController.instance.UpdateLifeText(life);
     }
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
-        InGameUIController.instance.UpdateLifeText(life);
     }
 
     private void FixedUpdate()
@@ -120,6 +118,8 @@ public class PlayerController : MonoBehaviour
             if (life < 0)
             {
                 life = 0;
+                InGameUIController.instance.UpdateLifeText(life);
+                GameManager.instance.CheckLose();
             }
             InGameUIController.instance.UpdateLifeText(life);
         }

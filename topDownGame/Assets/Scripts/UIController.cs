@@ -9,4 +9,9 @@ public class UIController : MonoBehaviour
     {
         SceneManager.LoadScene("Prototype");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
