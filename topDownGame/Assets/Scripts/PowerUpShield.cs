@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class PowerUpShield : MonoBehaviour
 {
-    private GameObject shield;
-
-    private void Start()
-    {
-        shield = GameObject.Find("MagicShield");
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
