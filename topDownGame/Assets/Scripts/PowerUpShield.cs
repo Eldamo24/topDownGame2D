@@ -15,8 +15,7 @@ public class PowerUpShield : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            shield.GetComponent<SpriteRenderer>().enabled = true;
-            shield.GetComponent<CircleCollider2D>().enabled = true;
+            collision.GetComponent<PlayerController>().EnableShield();
             Destroy(gameObject);
         }
     }

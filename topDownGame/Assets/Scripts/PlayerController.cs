@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int life = 100;
     private const int maxLife = 100;
 
+    [Header("Shield")]
+    [SerializeField] private MagicShield shield;
+
     private void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,6 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
+        InGameUIController.instance.UpdateLifeText(life);
     }
 
     private void FixedUpdate()
@@ -105,10 +109,18 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        life -= damage;
-        if (life < 0)
+        if (shield.enabled)
         {
-            life = 0;
+            shield.Hit();
+        }
+        else
+        {
+            life -= damage;
+            if (life < 0)
+            {
+                life = 0;
+            }
+            InGameUIController.instance.UpdateLifeText(life);
         }
     }
 
@@ -119,6 +131,17 @@ public class PlayerController : MonoBehaviour
         {
             life = maxLife;
         }
+        InGameUIController.instance.UpdateLifeText(life);
+    }
+
+    public void EnableShield()
+    {
+        if (!shield.enabled)
+        {
+            shield.enabled = true;
+            shield.EnableShield();
+        }
+        shield.ResetHits();
     }
 
 }

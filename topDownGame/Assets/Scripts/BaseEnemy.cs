@@ -110,5 +110,6 @@ public class BaseEnemy : MonoBehaviour, IEnemy
     private void OnDestroy()
     {
         spawn.SubstractEnemy();
+        InGameUIController.instance.UpdateEnemiesText();
     }
 }

@@ -77,5 +77,6 @@ public class Exploder : MonoBehaviour, IEnemy
     private void OnDestroy()
     {
         spawn.SubstractEnemy();
+        InGameUIController.instance.UpdateEnemiesText();
     }
 }

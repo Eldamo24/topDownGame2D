@@ -179,6 +179,7 @@ MonoBehaviour:
   bullet: {fileID: 6681992374650742341, guid: b7920af3a6561c64c9e64274d31bdb95, type: 3}
   cooldown: 0.5
   life: 100
+  shield: {fileID: 0}
 --- !u!114 &1761053315161979906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +235,7 @@ GameObject:
   - component: {fileID: 6008551210626424356}
   m_Layer: 0
   m_Name: MagicShield
-  m_TagString: Shield
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -249,7 +250,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6541, y: 1.6541, z: 1.6541}
+  m_LocalScale: {x: 2.0487683, y: 2.0487683, z: 2.0487683}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3157010885667788168}
@@ -294,7 +295,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1243407235
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.25044498, g: 0.7596346, b: 0.7924528, a: 1}
   m_FlipX: 0

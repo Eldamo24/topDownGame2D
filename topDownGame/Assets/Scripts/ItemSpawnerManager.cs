@@ -6,8 +6,8 @@ using UnityEngine;
 public class ItemSpawnerManager : MonoBehaviour
 {
     [SerializeField] private List<Transform> spawners;
-    [SerializeField] private GameObject lifePowerUp;
-    private float coolDown = 45f;
+    [SerializeField] private List<GameObject> powerUp;
+    private float coolDown = 15f;
     private float waitTime = 0;
     [SerializeField] private int percentageProbability;
 
@@ -16,7 +16,7 @@ public class ItemSpawnerManager : MonoBehaviour
         spawners = new List<Transform>(GetComponentsInChildren<Transform>());
         spawners = spawners.Where(c => c.gameObject != this.gameObject).ToList(); // Filtro para ignorar al padre de la jerarquia
         waitTime = coolDown + Time.time;
-        percentageProbability = 75;
+        percentageProbability = 50;
     }
 
     private void Update()
@@ -33,7 +33,8 @@ public class ItemSpawnerManager : MonoBehaviour
         if(probability >= percentageProbability)
         {
             int index = Random.Range(0, spawners.Count);
-            Instantiate(lifePowerUp, spawners[index].position, Quaternion.identity);
+            int indexItem = Random.Range(0, powerUp.Count);
+            Instantiate(powerUp[indexItem], spawners[index].position, Quaternion.identity);
         }
         waitTime = coolDown + Time.time;
     }
