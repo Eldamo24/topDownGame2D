@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
         inputs.actions["Shoot"].performed += StartShoot;
         inputs.actions["Shoot"].canceled += EndShoot;
         aimPosition = Vector3.zero;
+        InGameUIController.instance.UpdateLifeText(life);
     }
 
     void Start()
