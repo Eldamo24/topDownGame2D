@@ -5,6 +5,7 @@ using UnityEngine;
 public interface IEnemy 
 {
     int Health { get; set; }
+    EnemySpawnManager spawn { get; set; }
 
     void Movement();
     void Attack();

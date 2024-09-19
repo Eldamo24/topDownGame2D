@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour, IEnemy
 {
     public int Health { get  ; set  ; }
+    public EnemySpawnManager spawn { get; set; }
 
     [SerializeField] private GameObject bullet;
 
@@ -106,4 +107,8 @@ public class BaseEnemy : MonoBehaviour, IEnemy
         return Vector2.Distance(transform.position, playerPosition.position) > distanceToPlayer;
     }
 
+    private void OnDestroy()
+    {
+        spawn.SubstractEnemy();
+    }
 }

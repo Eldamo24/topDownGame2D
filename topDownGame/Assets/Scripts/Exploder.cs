@@ -3,6 +3,7 @@ using UnityEngine;
 public class Exploder : MonoBehaviour, IEnemy
 {
     public int Health { get ; set ; }
+    public EnemySpawnManager spawn { get; set; }
 
     [Header("Movement")]
     [SerializeField] private Transform player;
@@ -71,5 +72,10 @@ public class Exploder : MonoBehaviour, IEnemy
     private bool CheckDistanceToPlayer()
     {
         return Vector3.Distance(transform.position, player.position) > distanceToPlayer;
+    }
+
+    private void OnDestroy()
+    {
+        spawn.SubstractEnemy();
     }
 }
