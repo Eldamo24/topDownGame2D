@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform playerPosition;
-    [SerializeField] private float zOffset;
-    [SerializeField] private float smooth;
+    [SerializeField] private Vector3 offset;
+    [SerializeField] private float smoothSpeed;
 
     private void Start()
     {
@@ -15,8 +15,9 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 positionWanted = new Vector3(playerPosition.position.x, playerPosition.position.y, playerPosition.position.z + zOffset);
-        transform.position = Vector3.Lerp(transform.position, positionWanted, smooth);
+        Vector3 positionWanted = new Vector3(playerPosition.position.x + offset.x, playerPosition.position.y + offset.y, transform.position.z);
+        Vector3 smoothPosition = Vector3.Lerp(transform.position, positionWanted, smoothSpeed);
+        transform.position = smoothPosition;
     }
 
 

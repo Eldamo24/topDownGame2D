@@ -62,10 +62,10 @@ public class PlayerController : MonoBehaviour
     void Movement()
     {
         Vector2 moveVector = inputs.actions["Movement"].ReadValue<Vector2>();
-        Vector2 newPos = rb.position + moveVector * speed * Time.deltaTime;
-        newPos.x = Mathf.Clamp(newPos.x, -8f, 8f);
-        newPos.y = Mathf.Clamp(newPos.y, -4.5f, 4.5f);
-        rb.MovePosition(newPos);
+        //Vector2 newPos = rb.position + moveVector * speed * Time.deltaTime;
+        //newPos.x = Mathf.Clamp(newPos.x, -8f, 8f);
+        //newPos.y = Mathf.Clamp(newPos.y, -4.5f, 4.5f);
+        rb.MovePosition(rb.position + moveVector * speed * Time.deltaTime);
     }
 
     void AIMMovement()

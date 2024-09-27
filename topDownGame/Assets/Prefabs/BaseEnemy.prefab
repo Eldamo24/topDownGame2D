@@ -175,6 +175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4457762744631734944, guid: e6ad778884352af4b87979ebde643a93, type: 3}
-  speed: 1
+  speed: 2
   bulletAmount: 6
   coolDownBetweenWaves: 3

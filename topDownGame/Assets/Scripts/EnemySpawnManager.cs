@@ -12,11 +12,15 @@ public class EnemySpawnManager : MonoBehaviour
     private int enemiesAlive;
     private int instancedEnemies;
     [SerializeField] private int amountOfEnemiesOnScreen;
+    [SerializeField] private int enemiesToKill;
+    private int killedEnemies;
+    [SerializeField] public BattleTrigger trigger;
 
     void Start()
     {
         enemiesAlive = 0;
         instancedEnemies = 0;
+        killedEnemies = 0;
         spawnPositions =  new List<Transform>(GetComponentsInChildren<Transform>());
         spawnPositions = spawnPositions.Where(c => c.gameObject != this.gameObject).ToList();
         waitTime = Time.time + coolDown;
@@ -25,9 +29,14 @@ public class EnemySpawnManager : MonoBehaviour
 
     void Update()
     {
-        if(Time.time > waitTime && enemiesAlive < amountOfEnemiesOnScreen && instancedEnemies < 20)
+        if(Time.time > waitTime && enemiesAlive < amountOfEnemiesOnScreen && instancedEnemies < enemiesToKill)
         {
             SpawnEnemy();
+        }
+        if(killedEnemies == enemiesToKill)
+        {
+            Destroy(trigger.gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -50,5 +59,6 @@ public class EnemySpawnManager : MonoBehaviour
     public void SubstractEnemy()
     {
         enemiesAlive--;
+        killedEnemies++;
     }
 }
